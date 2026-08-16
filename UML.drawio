@@ -1,0 +1,81 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="UML Class Diagram" id="uml-oopx-editor">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="2850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="cDocument" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Document&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- chapters : vector&amp;lt;Chapter&amp;gt;&lt;/div&gt;&lt;div&gt;- lines : vector&amp;lt;Line*&amp;gt;&lt;/div&gt;&lt;div&gt;- spots : vector&amp;lt;Spot&amp;gt;&lt;/div&gt;&lt;div&gt;+ cursorRow : int&lt;/div&gt;&lt;div&gt;+ cursorCol : int&lt;/div&gt;&lt;div&gt;+ mode : EditorMode&lt;/div&gt;&lt;div&gt;+ filename : MyString&lt;/div&gt;&lt;div&gt;+ lineNumbersOn : bool&lt;/div&gt;&lt;div&gt;+ modified : bool&lt;/div&gt;&lt;div&gt;+ quitRequested : bool&lt;/div&gt;&lt;div&gt;+ statusMessage : MyString&lt;/div&gt;&lt;div&gt;+ commandBuffer : MyString&lt;/div&gt;&lt;div&gt;+ clipboardLines : vector&amp;lt;MyString&amp;gt;&lt;/div&gt;&lt;div&gt;+ wholeLine : bool&lt;/div&gt;&lt;div&gt;+ selecting : bool&lt;/div&gt;&lt;div&gt;+ selAnchorRow : int&lt;/div&gt;&lt;div&gt;+ selAnchorCol : int&lt;/div&gt;&lt;div&gt;+ lastSearchPattern : MyString&lt;/div&gt;&lt;div&gt;+ lastSearchForward : bool&lt;/div&gt;&lt;div&gt;+ undoStack : vector&amp;lt;Snapshot&amp;gt;&lt;/div&gt;&lt;div&gt;+ redoStack : vector&amp;lt;Snapshot&amp;gt;&lt;/div&gt;&lt;div&gt;+ lastCmd : RepeatableCmd&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- rebuildLines() : void&lt;/div&gt;&lt;div&gt;- findSpot(int) : Spot&lt;/div&gt;&lt;div&gt;- insertLineAfter(int, const Line&amp;amp;) : void&lt;/div&gt;&lt;div&gt;- insertLineBefore(int, const Line&amp;amp;) : void&lt;/div&gt;&lt;div&gt;- removeLine(int) : void&lt;/div&gt;&lt;div&gt;+ Document()&lt;/div&gt;&lt;div&gt;+ loadFromFile(const char*) : bool&lt;/div&gt;&lt;div&gt;+ saveToFile(const char*) : bool&lt;/div&gt;&lt;div&gt;+ lineCount() : int&lt;/div&gt;&lt;div&gt;+ getLine(int) : Line&amp;amp;&lt;/div&gt;&lt;div&gt;+ moveLeft() : void&lt;/div&gt;&lt;div&gt;+ moveRight() : void&lt;/div&gt;&lt;div&gt;+ moveUp() : void&lt;/div&gt;&lt;div&gt;+ moveDown() : void&lt;/div&gt;&lt;div&gt;+ moveWordForward() : void&lt;/div&gt;&lt;div&gt;+ moveWordBackward() : void&lt;/div&gt;&lt;div&gt;+ moveToLineStart() : void&lt;/div&gt;&lt;div&gt;+ moveToLineEnd() : void&lt;/div&gt;&lt;div&gt;+ moveToDocStart() : void&lt;/div&gt;&lt;div&gt;+ moveToDocEnd() : void&lt;/div&gt;&lt;div&gt;+ scrollHalfPageDown(int) : void&lt;/div&gt;&lt;div&gt;+ scrollHalfPageUp(int) : void&lt;/div&gt;&lt;div&gt;+ fixCursor() : void&lt;/div&gt;&lt;div&gt;+ pushUndo() : void&lt;/div&gt;&lt;div&gt;+ undo() : void&lt;/div&gt;&lt;div&gt;+ redo() : void&lt;/div&gt;&lt;div&gt;+ deleteCurrentLine() : void&lt;/div&gt;&lt;div&gt;+ deleteToEndOfLine() : void&lt;/div&gt;&lt;div&gt;+ deleteChar() : void&lt;/div&gt;&lt;div&gt;+ toggleCase() : void&lt;/div&gt;&lt;div&gt;+ yankCurrentLine() : void&lt;/div&gt;&lt;div&gt;+ pasteAfter() : void&lt;/div&gt;&lt;div&gt;+ pasteBefore() : void&lt;/div&gt;&lt;div&gt;+ repeatLastCommand() : void&lt;/div&gt;&lt;div&gt;+ typeChar(char) : void&lt;/div&gt;&lt;div&gt;+ newLine() : void&lt;/div&gt;&lt;div&gt;+ backspace() : void&lt;/div&gt;&lt;div&gt;+ deleteForward() : void&lt;/div&gt;&lt;div&gt;+ indent() : void&lt;/div&gt;&lt;div&gt;+ unindent() : void&lt;/div&gt;&lt;div&gt;+ startSelect() : void&lt;/div&gt;&lt;div&gt;+ clearSelection() : void&lt;/div&gt;&lt;div&gt;+ getSelectionRange(int&amp;amp;, int&amp;amp;, int&amp;amp;, int&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ copySelection() : void&lt;/div&gt;&lt;div&gt;+ cutSelection() : void&lt;/div&gt;&lt;div&gt;+ pasteHere() : void&lt;/div&gt;&lt;div&gt;+ searchFor(const MyString&amp;amp;, bool) : bool&lt;/div&gt;&lt;div&gt;+ findNext() : bool&lt;/div&gt;&lt;div&gt;+ findPrevious() : bool&lt;/div&gt;&lt;div&gt;+ executeCommand(const MyString&amp;amp;) : MyString&lt;/div&gt;&lt;div&gt;+ replaceAll(const MyString&amp;amp;, const MyString&amp;amp;) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="480" height="1160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eEditorMode" value="&lt;div style='text-align:center'&gt;&lt;b&gt;EditorMode&lt;/b&gt;&lt;/div&gt;&lt;div style='text-align:center'&gt;(enum)&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;MODE_NORMAL&lt;/div&gt;&lt;div&gt;MODE_INSERT&lt;/div&gt;&lt;div&gt;MODE_COMMAND&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="40" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eRepeatableCmd" value="&lt;div style='text-align:center'&gt;&lt;b&gt;RepeatableCmd&lt;/b&gt;&lt;/div&gt;&lt;div style='text-align:center'&gt;(enum)&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;REPEAT_NONE&lt;/div&gt;&lt;div&gt;REPEAT_DD&lt;/div&gt;&lt;div&gt;REPEAT_D&lt;/div&gt;&lt;div&gt;REPEAT_X&lt;/div&gt;&lt;div&gt;REPEAT_TILDE&lt;/div&gt;&lt;div&gt;REPEAT_YY&lt;/div&gt;&lt;div&gt;REPEAT_P&lt;/div&gt;&lt;div&gt;REPEAT_SHIFT_P&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="200" width="200" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sSnapshot" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Snapshot&lt;/b&gt;&lt;/div&gt;&lt;div style='text-align:center'&gt;(struct)&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;texts : vector&amp;lt;MyString&amp;gt;&lt;/div&gt;&lt;div&gt;row : int&lt;/div&gt;&lt;div&gt;col : int&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="440" width="240" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sSpot" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Spot&lt;/b&gt;&lt;/div&gt;&lt;div style='text-align:center'&gt;(struct)&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;chapter : int&lt;/div&gt;&lt;div&gt;section : int&lt;/div&gt;&lt;div&gt;paragraph : int&lt;/div&gt;&lt;div&gt;line : int&lt;/div&gt;&lt;div&gt;found : bool&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="600" width="240" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cChapter" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Chapter&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- sections : vector&amp;lt;Section&amp;gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;+ Chapter()&lt;/div&gt;&lt;div&gt;+ sectionCount() : int&lt;/div&gt;&lt;div&gt;+ getSection(int) : Section&amp;amp;&lt;/div&gt;&lt;div&gt;+ addSection(const Section&amp;amp;) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1250" width="260" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cSection" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Section&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- paragraphs : vector&amp;lt;Paragraph&amp;gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;+ Section()&lt;/div&gt;&lt;div&gt;+ paragraphCount() : int&lt;/div&gt;&lt;div&gt;+ getParagraph(int) : Paragraph&amp;amp;&lt;/div&gt;&lt;div&gt;+ addParagraph(const Paragraph&amp;amp;) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1470" width="260" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cParagraph" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- lines : vector&amp;lt;Line&amp;gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;+ Paragraph()&lt;/div&gt;&lt;div&gt;+ lineCount() : int&lt;/div&gt;&lt;div&gt;+ getLine(int) : Line&amp;amp;&lt;/div&gt;&lt;div&gt;+ addLine(const Line&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ insertLine(int, const Line&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ removeLine(int) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1690" width="260" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cLine" value="&lt;div style='text-align:center'&gt;&lt;b&gt;Line&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- content : MyString&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;+ Line()&lt;/div&gt;&lt;div&gt;+ Line(const char*)&lt;/div&gt;&lt;div&gt;+ Line(const MyString&amp;amp;)&lt;/div&gt;&lt;div&gt;+ length() : int&lt;/div&gt;&lt;div&gt;+ getText() : MyString&lt;/div&gt;&lt;div&gt;+ charAt(int) : char&lt;/div&gt;&lt;div&gt;+ setText(const MyString&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ setText(const char*) : void&lt;/div&gt;&lt;div&gt;+ insertChar(int, char) : void&lt;/div&gt;&lt;div&gt;+ insertText(int, const MyString&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ deleteChar(int) : void&lt;/div&gt;&lt;div&gt;+ deleteRange(int, int) : void&lt;/div&gt;&lt;div&gt;+ deleteToEnd(int) : MyString&lt;/div&gt;&lt;div&gt;+ splitAt(int) : MyString&lt;/div&gt;&lt;div&gt;+ appendText(const MyString&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ toggleCaseAt(int) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="1920" width="280" height="350" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cMyString" value="&lt;div style='text-align:center'&gt;&lt;b&gt;MyString&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- string : vector&amp;lt;char&amp;gt;&lt;/div&gt;&lt;div&gt;- len : int&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div&gt;- isUpper(char) : bool&lt;/div&gt;&lt;div&gt;- isLower(char) : bool&lt;/div&gt;&lt;div&gt;- toUpper(char) : char&lt;/div&gt;&lt;div&gt;- toLower(char) : char&lt;/div&gt;&lt;div&gt;+ MyString()&lt;/div&gt;&lt;div&gt;+ MyString(const char*)&lt;/div&gt;&lt;div&gt;+ MyString(const MyString&amp;amp;)&lt;/div&gt;&lt;div&gt;+ operator=(const MyString&amp;amp;) : MyString&amp;amp;&lt;/div&gt;&lt;div&gt;+ operator=(const char*) : MyString&amp;amp;&lt;/div&gt;&lt;div&gt;+ length() : int&lt;/div&gt;&lt;div&gt;+ c_str() : const char*&lt;/div&gt;&lt;div&gt;+ empty() : bool&lt;/div&gt;&lt;div&gt;+ clear() : void&lt;/div&gt;&lt;div&gt;+ operator[](int) : char&amp;amp;&lt;/div&gt;&lt;div&gt;+ operator+=(const MyString&amp;amp;) : MyString&amp;amp;&lt;/div&gt;&lt;div&gt;+ operator+=(char) : MyString&amp;amp;&lt;/div&gt;&lt;div&gt;+ operator==(const MyString&amp;amp;) : bool&lt;/div&gt;&lt;div&gt;+ insertAt(int, char) : void&lt;/div&gt;&lt;div&gt;+ insertAt(int, const MyString&amp;amp;) : void&lt;/div&gt;&lt;div&gt;+ eraseAt(int, int) : void&lt;/div&gt;&lt;div&gt;+ substr(int, int) : MyString&lt;/div&gt;&lt;div&gt;+ find(const MyString&amp;amp;, int) : int&lt;/div&gt;&lt;div&gt;+ toggleCaseChar(int) : void&lt;/div&gt;&lt;div&gt;+ replaceAll(const MyString&amp;amp;, const MyString&amp;amp;) : MyString&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=12;fontFamily=Helvetica;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="690" y="2300" width="300" height="470" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="1..*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="cChapter" target="cDocument">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="1..*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="cSection" target="cChapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="1..*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="cParagraph" target="cSection">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="1..*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="cLine" target="cParagraph">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="cMyString" target="cLine">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="0..*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="sSnapshot" target="cDocument">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="0..*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=diamondThin;endFill=1;endSize=14;startArrow=none;" edge="1" parent="1" source="sSpot" target="cDocument">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;startArrow=none;" edge="1" parent="1" source="cDocument" target="eEditorMode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;startArrow=none;" edge="1" parent="1" source="cDocument" target="eRepeatableCmd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;startArrow=none;" edge="1" parent="1" source="cDocument" target="cMyString">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
